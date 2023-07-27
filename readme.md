@@ -129,7 +129,7 @@ Cette modif ajoute un moteur de recherche et utilise l'API de recherche pour ré
 
 Relatif à l'issue #123,
 ```
-#En savoir plus sur le langage markdown 
+# En savoir plus sur le langage markdown 
 Pour la rédaction des fichiers readme, n'hésitez pas à vous penschez sur la documentation markdown. Voici un lien pour vous aider :
 [Lien pour apprendre markdown](https://programminghistorian.org/fr/lecons/debuter-avec-markdown)
 
