@@ -1,4 +1,4 @@
-#Les commandes de base de Github
+# Les commandes de base de Github
 
 ## Première étape
 
@@ -59,7 +59,7 @@ Commençons par ajouter un petit message qui précise ce qu'on a fait comme modi
 
 Une fois que le message de commit est défini, on va choisir la branche sur laquelle on va travailler. 
 
-Lorsque vbous souhaitez stocker vos fichiers sur github, si vous le souhaitez vousnpouvez stocker différente version de vos fichiers. . Cela s'appelle des branches.
+Lorsque vous souhaitez stocker vos fichiers sur github, si vous le souhaitez vousnpouvez stocker différente version de vos fichiers. . Cela s'appelle des branches.
 
 La branche principale sur laquelle vos fichiers sont enregistrés s'appelle "main".
 
