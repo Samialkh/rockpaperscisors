@@ -92,5 +92,45 @@ Une fois que ces commandes ont été faites, pendant le reste du developpement d
 
 C'est ces 3 commandes que vous utiliserez à chaque fois. 
 
+# Ecrire un bon message de commit
+Ecrire un bon message de commit estb essentiel pour la maintenance et la compréhension d'un projet. Cela aide à suivre l'évolution du projet et à comprendre les raisons derrière chaque modification.
+
+Voici une norme généralement acceptée pour rédiger des medssages de commit.
+
+## Structure d'un message de commit
+Un message de commit se compose généralement de deux parties :
+
+* un titre ou en-tête: c'est une brève description des modifications. Il doit être concis idéalement et ne pas dépasser les 50 caractètres. Il doit commencer par une majuscule.
+* un corps : Il donne des détails supplémentaires sur les modif. Il est séparé du titre par une ligne blanche.
+
+```
+Titre court et description
+
+Corps du message : ici, on explique en détail le pourquoi et le comment 
+des changements si nécessaires. Essayez de garder chaque ligne à - 
+de 72 caractères.
+```
+
+## Conseils pour un bon message de commit
+Utilisez l'impératif : le titre doit être idéalement à l'impératif (ex: Ajoute, Corrige, Refactorise au lieu d'Ajouté...)
+* Titre clair et concis : doit être court et descriptif
+* Séparez les sujets : si vous avez plusieurs modif qui n'ont pas de rapport entre elles, envisagez de les séparer en plusieurs commits
+* Expliquez le pourquoi, pas le comment : le code lui-même montre comment une certaine chose a étté faite . Ce qui n'est pas toujhours clair, c'ets pourquoi cetteb modification a été apportée. Assurez-vous d'expliquer les raisons dans le corps du message.
+* Evitez les messages vagues :"correvctions diverses" ou "mise à jour" ne sont pas des messages utiles. Soyez aussi descriptif que possible.
+* Utilisez des réf à une issues/ tracker : si votre commiut fait référence à une issue ou à un ticket, ajoutez cette réf dans le corps du message. 
+* Respectez les conventions de l'équipe : si votre équipe a des conventions spécifiques pour les messages commity, suivez-les.
+
+### Exemple d'un bon message de commit
+
+Ajoute une focntionnalité de recherche
+
+La page d'accueil avait besoin d'une fonctionnalité de recherche pour aider les utilisateurs à trouvers des contenus spécifiques
+Cette modif ajoute un moteur de recherche et utilise l'API de recherche pour récupérer les résultats.
+
+Relatif à l'issue #123,
+```
+#En savoir plus sur le langage markdown 
+Pour la rédaction des fichiers readme, n'hésitez pas à vous penschez sur la documentation markdown. Voici un lien pour vous aider :
+[Lien pour apprendre markdown](https://programminghistorian.org/fr/lecons/debuter-avec-markdown)
 
 
