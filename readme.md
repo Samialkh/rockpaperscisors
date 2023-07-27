@@ -88,7 +88,8 @@ Les commandes ``git init``, ``git branch``et ``git remote add origin``sont à la
 Une fois que ces commandes ont été faites, pendant le reste du developpement de votre projet, vous pouvez utiliser les commandes suivantes : 
 * ``git commit -m "message de modif``
 * ``git add nomDuFichierModifié``
-* ``git push``
+* ``git push``.
+
 C'est ces 3 commandes que vous utiliserez à chaque fois. 
 
 
