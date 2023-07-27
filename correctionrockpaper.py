@@ -13,8 +13,8 @@ def computer_choice():
 
 # Fonction qui permet de lancer le jeu
 def play(user_choice):
-    nbDeCoups.set(nbDeCoups.get()+1) # Ajoute 1 au  nombre de coups
-    print("Nombre de coups : " + str(nbDeCoups.get()))
+    nbDeCoups.set(nbDeCoups.get() + 1) # Ajoute 1 au nombre de coups
+
     computer = computer_choice() #Fait appel à la fonction qui choisi aléatoirement pour le PC
 
     # Logique pour déterminer le gagnant
@@ -40,23 +40,19 @@ def play(user_choice):
 
     verify_victory()
 
-# Permet de savoir si l'utilisateur peut continuer à jouer 
+# Permet de savoir si l'utilisateur peut continuer à jouer
 def verify_victory():
-    # Test si le nombre de coups est > 10 
+    # Test si le nombre de coups est > 10
     if nbDeCoups.get() >= 10:
-        # Il faut décider quoi faire quand on arrive à 10 coups
-        # Par exemple, comparer les scores et dire qui a gagner entre joueur ou ordi
-        # Ajouter un bouton pour reset les scores à 0
-        # Quitter la fenêtre ? (solution de facilité)
-        # solution : Comparer les scores pour déterminer le gagnant
+        # Comparer les scores pour déterminer le gagnant
         if player_score_var.get() > computer_score_var.get():
             result_var.set("Félicitations, vous avez gagné la partie !")
         elif player_score_var.get() < computer_score_var.get():
-            result_var.set("Dommage, l'ordinateur a gagné")
+            result_var.set("Dommage, l'ordinateur à gagné.")
         else:
-            result_var.set("Match nul")
+            result_var.set("Match nul !")
         
-        #Désactiver les boutons pour empecher de jouer
+        # Désactiver les boutons pour empêcher de jouer
         rock_button.config(state=tk.DISABLED)
         paper_button.config(state=tk.DISABLED)
         scissors_button.config(state=tk.DISABLED)
@@ -71,20 +67,15 @@ def reset_scores():
     computer_score_var.set(0)
     result_var.set("")
     history_listbox.delete(0, tk.END)
+    
 
-    user_img_label.pack_forget()
-    user_img_label.config(image=None)
-    user_img_label.pack(pady=10)
-
-    computer_img_label.pack_forget()
-    computer_img_label.config(image=None)
-    computer_img_label.pack(pady=10)
-
+    user_img_label.config(image=empty_img)
+    computer_img_label.config(image=empty_img)
     # Réactiver les boutons
     rock_button.config(state=tk.NORMAL)
     paper_button.config(state=tk.NORMAL)
     scissors_button.config(state=tk.NORMAL)
-    #Supprimer le bouton reset
+    # Supprimer le bouton reset
     reset_button.pack_forget()
 
 # Afficher une image en fonction du choix
@@ -96,20 +87,35 @@ def get_image(choice):
     else:
         return scissors_img
     
+
+# Fonction a appeler lors de l'appui sur la touche P
+def on_key_press(e):
+    if nbDeCoups.get()< 10:
+        if e.char.lower() == "p":
+            play("Paper")
+        if e.char.lower()== "r":
+            play("Rock")
+        if e.char.lower()== "s":
+            play("Scissors")
+    #Pour toutes les autres touches on ne s'en occupe pas
+
+# Associer la fonction on_key_press à m'évènement <Key>
+fenetre.bind('<Key>', on_key_press)
+    
 # Définition des variables
 result_var = tk.StringVar()
 player_score_var = tk.IntVar()
 computer_score_var = tk.IntVar()
-nbDeCoups = tk.IntVar(value=0) # permet d'arrêter le jeu après X coups
-
+nbDeCoups = tk.IntVar(value=0) # Permet d'arrêter le jeu après X coups
     
 # Charger les images
 rock_img = ImageTk.PhotoImage(Image.open("pierre.gif"))
 paper_img = ImageTk.PhotoImage(Image.open("papier.gif"))
 scissors_img = ImageTk.PhotoImage(Image.open("ciseaux.gif"))
+empty_img = ImageTk.PhotoImage(Image.new("RGBA", (0, 0), (0, 0, 0, 0))) # Création image vide en taille 0x0 et totalement transparente
 
 # Création des widget avec les images
-user_label = tk.Label(fenetre, text="Choisissez : ")
+user_label = tk.Label(fenetre, text="Choisissez : ", font=("Helvetica", 16, "bold"))
 user_label.pack(pady=10)
 
 rock_button = tk.Button(fenetre, image=rock_img, command=lambda : play("Pierre"))
@@ -121,7 +127,7 @@ paper_button.pack(side=tk.LEFT, padx=10)
 scissors_button = tk.Button(fenetre, image=scissors_img, command=lambda : play("Ciseaux"))
 scissors_button.pack(side=tk.LEFT, padx=10)
 
-# Etiquettes pour afficher les images jouées
+# Etiqueetes pour afficher les images jouées
 user_img_label = tk.Label(fenetre, image=None) # Pas d'image de départ
 user_img_label.pack(pady=10)
 
@@ -153,6 +159,8 @@ history_label.pack(pady=10)
 
 history_listbox = tk.Listbox(fenetre, width=40, height=6)
 history_listbox.pack()
+
+reset_button = tk.Button(fenetre, text="Nouvelle partie", command=reset_scores)
 
 
 fenetre.mainloop()
