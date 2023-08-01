@@ -134,3 +134,69 @@ Pour la rédaction des fichiers readme, n'hésitez pas à vous penschez sur la d
 [Lien pour apprendre markdown](https://programminghistorian.org/fr/lecons/debuter-avec-markdown)
 
 
+Pour la rédaction de vos fichier Readme, n'hésitez pas à vous pencher sur la doc makdown. Voici un lien pour vous aider. 
+
+
+# Pull Request (PR)
+
+C'ets une fonctionnalité clé des systèmes de gestion de versions basées sur un github, Gitlab , Bitbucket... Elle représente une demande de fusion des modifs (commits) d'une branche vers une autre, h-généralement de la branche d'une fonctionnalité vers la branche principale d'un projet.
+
+## Concept de la Pull Request (PR)
+
+Collaboration et revue du code : La PR n'est pas seulement un mécanisme de fusion de code. C'est aussi un outil de collaboration. Lorsqu'un developpeur soumet un PR, d'utres memebres de l'équipe peuvent le consulter, laisser des comms, suggérer des mofis et meme proopser des commits pour améliorer la PR avant qu'elle ne soit fusionnée. 
+
+## Point de contrôle : ** Avant la fusion, la PR fournit un point de contrôle pour s'assurer que le code respecte les nombres de qualité, passe tous les test et n'introduit pas de régression (perte de fonctionnalité).
+
+** Intégration avec CI/CD :** Les PR sont souvent intégrer avec de soutils d'Intégration Continue et de Livraison Continue (CI/CD). Lorsqu'une PR est soumis des test automatisés peuvent être déclenchés, et le résultat de ces test est souvent signalé directement dans l'interface de la PR. 
+
+## Faire une PR
+## Fork du repository
+Avant de pouvoir soummettre une PR, vous devez avoir une copie du repository sur votre compte? Si ce n'ets pas deja fait :
+1. Rendez-vous sur la page GitHub du projet auquel vous voulez contribuer.
+2. Cliquez sur le bouton "Fork" en haut à droite de la page.
+Cela créera une copie du projet sur votre compte GitHub personnel. 
+
+## Clonez votre Fork
+Clonez bvotre Fork sur votre machine :
+```
+git clone URL_DU_REPO_A_CLONER
+git clone https://github.com/JackAdamsJenkins/rockpaperscisors.git
+```
+
+## Créer une nouvelle branche
+Il est conseillé de créer une nouvelle branche pour chaque novelle fonctionnalité ou correction. Cela vous permet de garder le travail organisé et séparé. 
+
+Pour créer une nouvelle branche, vous devez utiliser la commande ``git checkout -b``
+
+```
+git checkout -b nom_de_la_branche
+git checkout -b fonctionnalite_timer
+```
+## Apportez les modifications
+Modifiez les fichiers nécessaires et ajoutez-les à l'index :
+```
+git add nom_du_fichier
+```
+
+Ou pour ajouter tous les ficheir modifiés :
+```
+git add * 
+```
+Ensuite faites un commit de vos modifications :
+```
+git commit -m "Description des modifications"
+```
+## Pousser la branche vers le Fork
+
+```
+git push origin nom_de_la_branche
+```
+## Créer la Pull Request
+
+1. Aller sur la page Github de votre fork
+2. Cliquez sur le bouton "New pull request"
+3. Sélectionner votre nouvelle branche dans le menu déroulant "compare"
+4. Assurez-vous que la branche de base(**main**) est celle du projet original et non celle de votre fork
+5. Vérifier vos modifs et cliquez sur "Create pull request"
+6. Donnez un titre à votre PR et décrivez vos modifs ou les raisons de vos PR
+7. Cliquez sur "Create pull request" pour soumettre votre PR
